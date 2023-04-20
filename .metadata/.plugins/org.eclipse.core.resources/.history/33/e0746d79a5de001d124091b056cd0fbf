@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<struts-config>
+
+
+  <action-mappings>
+    <action path="/loginPage" type="com.student.action.LoginPage"
+      name="helloForm">
+      <forward name="success" path="/Hello.jsp" />
+    </action>
+  </action-mappings>
+
+</struts-config>

@@ -1,0 +1,47 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Create a new User</h1>
+	
+	<form action="submit-form.php" method="POST">
+  <label for="student-id">Student ID:</label>
+  <input type="text" id="student-id" name="student_id"><br>
+
+  <label for="full-name">Full Name:</label>
+  <input type="text" id="full-name" name="full_name"><br>
+
+  <label for="college-name">College Name:</label>
+  <input type="text" id="college-name" name="college_name"><br>
+
+  <label for="university-name">University Name:</label>
+  <input type="text" id="university-name" name="university_name"><br>
+
+  <label for="date-of-birth">Date of Birth:</label>
+  <input type="password" id="date-of-birth" name="date_of_birth"><br>
+
+  <label for="section">Section:</label>
+  <input type="text" id="section" name="section"><br>
+
+  <label for="department">Stream/Department:</label>
+  <input type="text" id="department" name="department"><br>
+
+  <label for="gender">Gender:</label>
+  <input type="radio" id="male" name="gender" value="male">
+  <label for="male">Male</label>
+  <input type="radio" id="female" name="gender" value="female">
+  <label for="female">Female</label><br>
+
+  <label for="student-email">Email:</label>
+  <input type="email" id="student-email" name="student_email"><br>
+
+  <input type="submit" value="Submit">
+</form>
+	
+</body>
+</html>

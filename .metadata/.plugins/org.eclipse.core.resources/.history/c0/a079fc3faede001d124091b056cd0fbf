@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<struts-config>
+
+
+  <action-mappings>
+    <action path="/loginPage" type="com.student.action.LoginPage"
+      name="LoginPage">
+      <forward name="success" path="/WEB-INF/views/login.jsp" />
+      <forward name="failure" path="/WEB-INF/views/login.jsp" />
+      
+    </action>
+  </action-mappings>
+  
+  <action-mappings>
+    <action path="/createUser" type="com.student.action.CreateUserPage"
+      name="CreateUserPage">
+      <forward name="success" path="/WEB-INF/views/createUser.jsp" />
+    </action>
+  </action-mappings>
+  
+
+</struts-config>

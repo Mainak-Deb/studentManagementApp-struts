@@ -13,3 +13,8 @@
 1681815519697	Move 'index.jsp' to 'webapp'
 1681815560809	Move 'index.jsp' to 'WEB-INF'
 1681815564478	Move 'index.jsp' to 'views'
+1681969707106	Delete element
+1681973254529	Rename type 'CreateUserDAO'
+1681980998742	Rename type 'createUserDAO'
+1681981333537	Rename type 'CreateUserDAO'
+1681990864035	Delete element

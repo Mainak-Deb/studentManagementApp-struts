@@ -1,0 +1,4 @@
+<%
+    String nextUrl = "http://www.example.com";
+    response.sendRedirect(nextUrl);
+%>

@@ -1,2 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="org.apache.struts.action.ActionMapping"/>
+    <fullyQualifiedTypeName name="org.apache.struts.action.ActionForm"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
+    <fullyQualifiedTypeName name="org.apache.struts.action.ActionForward"/>
+    <fullyQualifiedTypeName name="org.apache.struts.action.Action"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.Cookie"/>
+    <fullyQualifiedTypeName name="org.apache.struts.chain.contexts.ServletActionContext"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,4 @@
+<%
+    String nextUrl = "loginPage.do";
+    response.sendRedirect(nextUrl);
+%>
