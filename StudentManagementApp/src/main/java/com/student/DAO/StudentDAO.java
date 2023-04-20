@@ -123,6 +123,22 @@ public class StudentDAO {
     	return students;
     }
 
+    public boolean deleteStudent(String emailId) throws SQLException {
+        String sql = "DELETE from student_details WHERE email = '"+emailId+"'";
+        connect();
+
+        PreparedStatement statement = jdbcConnection.prepareStatement(sql);
+        int rows = statement.executeUpdate();
+        statement.close();
+        disconnect();
+        if (rows == 0) {
+            return false;
+        }
+        else {
+        	return true;
+        }
+    }
+    
     public CreateUserForm makeStudent( String fullName, String collegeName, String universityName,
             String dateOfBirth, String section, String stream , String gender, String studentEmail) {
     	CreateUserForm student = new CreateUserForm();

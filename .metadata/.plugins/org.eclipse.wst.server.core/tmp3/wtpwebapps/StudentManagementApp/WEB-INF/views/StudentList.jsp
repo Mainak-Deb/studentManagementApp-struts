@@ -52,12 +52,28 @@
   </c:forEach>
 </table>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script type="text/javascript">
 
 	function deleteStudent(email){
 		console.log(email)
+		 $.ajax({
+		    type: "GET",
+		    url: "deleteStudent.do",
+		    data: { email: email },
+		    success: function(response) {
+		      // handle success response
+		      location.reload();
+		      console.log("Student deleted successfully.");
+		    },
+		    error: function(jqXHR, textStatus, errorThrown) {
+		      // handle error response
+		      console.error("Error deleting student:", errorThrown);
+		    }
+		  });
 		alert(email+" it deleted");
+		
 	}
 </script>
 

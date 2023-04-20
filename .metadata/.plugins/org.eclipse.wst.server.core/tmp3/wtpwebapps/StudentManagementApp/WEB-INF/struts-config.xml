@@ -41,6 +41,13 @@
     </action>
   </action-mappings>
   
+   <action-mappings>
+    <action path="/deleteStudent" type="com.student.action.DeleteStudentAction"
+      name="DeleteStudent" >
+		<forward name="success" path="/studentList.do" />
+    </action>
+  </action-mappings>
+  
   
   
   
