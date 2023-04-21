@@ -139,6 +139,32 @@ public class StudentDAO {
         }
     }
     
+    public boolean updateStudent(CreateUserForm student) throws SQLException {
+        String sql = "UPDATE student_details SET full_name = ?, college_name = ?,"
+        		+ " university_name = ?, dob = ?, section = ?, department = ?,"
+        		+ " gender = ? WHERE email = ?";
+        connect();
+
+        PreparedStatement statement = jdbcConnection.prepareStatement(sql);
+        
+        statement.setString(1, student.getFullName());
+        statement.setString(2, student.getCollegeName());
+        statement.setString(3, student.getUniversityName());
+        statement.setString(4, student.getDateOfBirth());
+        statement.setString(5, student.getSection());
+        statement.setString(6, student.getStream());
+        statement.setString(7, student.getGender());
+        statement.setString(8, student.getStudentEmail());
+        
+        
+
+        boolean rowInserted = statement.executeUpdate() > 0;
+        statement.close();
+        disconnect();
+        return rowInserted;
+    }
+    
+    
     public CreateUserForm makeStudent( String fullName, String collegeName, String universityName,
             String dateOfBirth, String section, String stream , String gender, String studentEmail) {
     	CreateUserForm student = new CreateUserForm();

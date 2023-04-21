@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<action path="/login" type="com.example.LoginAction" name="loginForm">
-    <forward name="success" path="/welcome.jsp"/>
-    <forward name="failure" path="/error.jsp"/>
-</action>

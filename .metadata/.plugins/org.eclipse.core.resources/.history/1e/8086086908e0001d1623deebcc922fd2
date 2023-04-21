@@ -1,0 +1,119 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>StudentPortal</title>
+<link rel="stylesheet" href="public/styles/createUser.css">
+
+</head>
+<body>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<% 
+   // Retrieve a session attribute
+   String username = (String) session.getAttribute("username");
+%>
+
+<p>Welcome, <%= username %>!</p>
+
+
+<form action="logout.do" method="post">
+  <button type="submit">Logout</button>
+</form>
+<h1>Student List will be shown here</h1>
+<table>
+  <tr>
+    <th>Full Name</th>
+    <th>College Name</th>
+    <th>University Name</th>
+    <th>Date of Birth</th>
+    <th>Section</th>
+    <th>Stream</th>
+    <th>Gender</th>
+    <th>Student Email</th>
+    <th>Delete</th>
+    <th>Update</th>
+    
+  </tr>
+  <c:forEach var="student" items="${studentList}">
+    <tr id="${student.studentEmail}-row"  >   
+      <td>${student.fullName}</td>
+      <td>${student.collegeName}</td>
+      <td>${student.universityName}</td>
+      <td>${student.dateOfBirth}</td>
+      <td>${student.section}</td>
+      <td>${student.stream}</td>
+      <td>${student.gender}</td>
+      <td>${student.studentEmail}</td>
+      <td>
+      	<button onclick="deleteStudent('${student.studentEmail}')"   >Delete</button>
+      </td>
+      <td>
+      	<button onclick="editStudent('${student.studentEmail}')"   >Edit</button>
+      </td>
+    </tr>
+  	
+  	<tr  class="hidden" id="${student.studentEmail}-form"  >
+  	 <form action="createUser.do" method="POST">  
+      <td> <input type="text" id="full-name" name="fullName" value= "${student.fullName}"></td>
+      <td><input type="text" id="college-name" name="collegeName" value="${student.collegeName}" ></td>
+      <td><input type="text" id="university-name" name="universityName" value="${student.universityName}" ></td>
+      <td><input type="date" id="date-of-birth" name="dateOfBirth" value="${student.dateOfBirth}" ></td>
+      <td><input type="text" id="section" name="section" value="${student.section}" ></td>
+      <td> <input type="text" id="department" name="stream" value="${student.stream}" ></td>
+      <td>
+      	  <input type="radio" id="male" name="gender" value="male" checked>
+		  <label for="male">Male</label>
+		  <input type="radio" id="female" name="gender" value="female">
+		  <label for="female">Female</label>
+	  </td>
+      <td><input type="email" id="student-email" name="studentEmail" value="${student.studentEmail}" ></td>
+      <td>
+      	<button onclick="deleteStudent('${student.studentEmail}')"   >Delete</button>
+      </td>
+      <td>
+      	<button onclick="updateStudent('${student.studentEmail}')"   >Update</button>
+      </td>
+    </form >  
+    </tr>
+    
+  
+  </c:forEach>
+</table>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script type="text/javascript">
+
+	function deleteStudent(email){
+		console.log(email)
+		 $.ajax({
+		    type: "GET",
+		    url: "deleteStudent.do",
+		    data: { email: email },
+		    success: function(response) {
+		      // handle success response
+		      location.reload();
+		      console.log("Student deleted successfully.");
+		    },
+		    error: function(jqXHR, textStatus, errorThrown) {
+		      // handle error response
+		      alert("Error deleting student:");
+		    }
+		  });	
+	}
+	
+	function editStudent(email){
+		console.log("#"+email+"-row")
+		$("#-row").css({
+			  display: "none",
+			  visibility: "hidden"
+			});
+		//$("#"+email+"-form").show();
+		
+	}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+.hidden {
+	display: none;
+}
+
+td,tr{
+	width:9%;
+	text-align:center;
+}
+input{
+	width:95%;
+	text-align:center;
+}
+input[type="radio"] {
+	font:0.2vw;
+}

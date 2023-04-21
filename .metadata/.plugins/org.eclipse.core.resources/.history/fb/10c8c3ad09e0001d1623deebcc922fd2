@@ -1,0 +1,7 @@
+.hidden {
+	display: none;
+}
+
+td,tr{
+	width:9%;
+}

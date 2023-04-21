@@ -1,0 +1,21 @@
+.hidden {
+	display: none;
+}
+
+td{
+	width:9%;
+	text-align:center;
+}
+input{
+	width:95%;
+	text-align:center;
+}
+.radio-button {
+
+	display: flex;
+	flex-direction: row;
+  	align-items: center;
+  	justify-content:center;
+	border:1px solid rgba(0,0,0,0.5);
+	margin:2px;
+}

@@ -25,18 +25,21 @@ public class LoginAction extends Action {
         
         
         try {
-        	
+        	HttpSession session = request.getSession();
         	if ( adao.authenticate(username, password) ) {
-                HttpSession session = request.getSession();
+                
                 session.setAttribute("username", username);
-               
+                
                 return mapping.findForward("success");
               } else {
+            	  request.setAttribute("isNormal", "false");
+            	  request.setAttribute("messege", "Incorrect username of password");
             	  return mapping.findForward("failure");
               }
         	
         }catch(Exception  e) {
         	HttpSession session = request.getSession(false);
+        	request.setAttribute("isNormal", "true");
    		 	String isLoggedIn = (String) session.getAttribute("username");
 	   		 if(isLoggedIn!=null) {
 				 System.out.println("yes");

@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="org.apache.struts.action.ActionMapping"/>
-    <fullyQualifiedTypeName name="org.apache.struts.action.ActionForm"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
     <fullyQualifiedTypeName name="org.apache.struts.action.ActionForward"/>
-    <fullyQualifiedTypeName name="org.apache.struts.action.Action"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
     <fullyQualifiedTypeName name="javax.servlet.http.Cookie"/>
     <fullyQualifiedTypeName name="org.apache.struts.chain.contexts.ServletActionContext"/>
+    <fullyQualifiedTypeName name="java.util.Date"/>
+    <fullyQualifiedTypeName name="org.apache.struts.action.ActionForm"/>
+    <fullyQualifiedTypeName name="com.student.DAO.StudentDAO"/>
+    <fullyQualifiedTypeName name="com.student.DAO.AuthDAO"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="com.student.form.CreateUserForm"/>
+    <fullyQualifiedTypeName name="org.apache.struts.action.Action"/>
 </qualifiedTypeNameHistroy>

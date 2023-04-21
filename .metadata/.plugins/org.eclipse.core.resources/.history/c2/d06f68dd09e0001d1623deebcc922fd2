@@ -1,0 +1,11 @@
+.hidden {
+	display: none;
+}
+
+td,tr{
+	width:9%;
+	text-align:center;
+}
+input{
+	text-align:center;
+}

@@ -5,10 +5,12 @@
      	<form-bean name="CreateUserForm" type="com.student.form.CreateUserForm"/>
  	</form-beans>
 
+
   <action-mappings>
     <action path="/createUser" type="com.student.action.CreateUserAction"
       name="CreateUserForm" scope="request" input="/WEB-INF/views/createUser.jsp"  >
       <forward name="success" path="/login.do" />
+      <forward name="failure" path="/WEB-INF/views/createUser.jsp" />
     </action>
   </action-mappings>
   
@@ -44,6 +46,13 @@
    <action-mappings>
     <action path="/deleteStudent" type="com.student.action.DeleteStudentAction"
       name="DeleteStudent" >
+		<forward name="success" path="/studentList.do" />
+    </action>
+  </action-mappings>
+  
+  <action-mappings>
+    <action path="/updateStudent" type="com.student.action.UpdateUserAction"
+      name="CreateUserForm" >
 		<forward name="success" path="/studentList.do" />
     </action>
   </action-mappings>

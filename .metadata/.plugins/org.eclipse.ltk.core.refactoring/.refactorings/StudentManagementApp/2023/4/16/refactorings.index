@@ -19,3 +19,9 @@
 1681981333537	Rename type 'CreateUserDAO'
 1681990864035	Delete element
 1681995962346	Rename type 'deleteStudentAction'
+1682053974356	Move 'createUser.css' to 'static'
+1682053985294	Move 'createUser.jsp' to 'static'
+1682055570092	Move 'createUser.jsp' to 'views'
+1682055616206	Move 'createUser.css' to 'styles'
+1682055622845	Delete element
+1682059889678	Rename type 'updateUserAction'
