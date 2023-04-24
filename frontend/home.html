@@ -5,20 +5,58 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="./styles/home.css">
 </head>
 <body>
 <div id="main">
     <div id="header">
-        <img src="images/logo_opt.png" alt="">
+        <img src="images/logo_opt.png" style="width:10%" alt="">
         <div class="head-text text"  >
             INTERRAIT STUDENT PORTAL
         </div>
         <div>
-            <button class="head-button" style="border-right:1px solid rgba(255, 255, 255, 0.544)" >LOGIN</button>
-            <button class="head-button">CREATE NEW USER</button>
+            <a href="login.do" class="head-button text" style="border-right:1px solid rgba(255, 255, 255, 0.544)" >LOGIN</a>
+            <a href="createUserPage.do" class="head-button text">CREATE NEW USER</a>
         </div>
     </div>
+    <div id="user-text">
+            Hello user
+    </div>
+    <div id="login-body">
+        <div id="logImg">
+            <img src="images/office.png"  alt="">
+            <div id="logForm">                             
+                <h1>InterraIT Login Form  </h1>
+                <form action="login.do" method="post"  id="loginform" onsubmit="clearFormFields('loginform')">
+                    <label>Username:</label>
+                    
+                    <input type="text" name="username"  placeholder="type your email as username"   /><br/>
+                    <label>Password:</label>
+                    <input type="password" name="password"   placeholder="Password"    /><br/>
+                   
+                    <input type="submit" value="Login"/>
+                </form>
+                <a href="">forgot your password?</a>
+            </div>
+
+        </div>
+        
+    </div>
+
+
 </div>
+<footer>
+    <div  > <h2>InterraIT student Portal</h2></div>
+    <div id="footer-text" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid nobis molestiae exercitationem dolor dolore voluptate tempore corrupti eligendi modi consequuntur quidem adipisci, deleniti sapiente? Vel inventore quo eos unde vitae.</div>
+    <div id="socials">
+        <div><span class="material-symbols-outlined"> mail</span></div>
+        <div><span class="material-symbols-outlined">phone_in_talk</span></div>
+        <div><span class="material-symbols-outlined"> sms</span></div>
+        <div><span class="material-symbols-outlined">contact_page</span></div>
+
+    </div>
+    <div>All rights reserves @2023</div>
+</footer>
 </body>
 </html>
