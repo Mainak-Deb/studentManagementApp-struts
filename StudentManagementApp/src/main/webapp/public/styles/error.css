@@ -10,7 +10,7 @@
   border-radius: 2px;
   
   overflow: hidden;
-  
+  z-index:10;
   
   font-family: "Open Sans", Helvetica, sans-serif;
  
@@ -31,8 +31,10 @@
           animation: show-modal 0.7s ease-in-out;
 }
 .modal.hide {
+	z-index:-2;
   -webkit-animation: hide-modal 0.6s ease-in-out both;
           animation: hide-modal 0.6s ease-in-out both;
+    
 }
 .modal img {
   margin-top: 24px;

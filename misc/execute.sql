@@ -19,16 +19,16 @@ CREATE TABLE student_details  (
 
 INSERT INTO student_details  ( full_name, college_name, university_name, dob, section, department, gender, email)
 VALUES 
-( 'John Smith', 'ABC College', 'XYZ University', '1995-03-15', 'A', 'Computer Science', 'Male', 'john.smith@example.com'),
-( 'Jane Doe', 'DEF College', 'PQR University', '1997-05-22', 'B', 'Mechanical Engineering', 'Female', 'jane.doe@example.com'),
-( 'Alex Johnson', 'GHI College', 'LMN University', '1994-11-01', 'C', 'Electrical Engineering', 'Male', 'alex.johnson@example.com'),
-('Sarah Williams', 'JKL College', 'STU University', '1996-02-12', 'D', 'Civil Engineering', 'Female', 'sarah.williams@example.com'),
-('Mike Brown', 'MNO College', 'VWX University', '1993-07-29', 'E', 'Chemical Engineering', 'Male', 'mike.brown@example.com'),
-( 'Emily Wilson', 'PQR College', 'ABC University', '1998-09-10', 'F', 'Computer Science', 'Female', 'emily.wilson@example.com'),
-('David Lee', 'STU College', 'DEF University', '1995-04-18', 'G', 'Mechanical Engineering', 'Male', 'david.lee@example.com'),
-( 'Jessica Taylor', 'UVW College', 'GHI University', '1997-01-25', 'H', 'Electrical Engineering', 'Female', 'jessica.taylor@example.com'),
-( 'Ryan Wilson', 'XYZ College', 'JKL University', '1994-12-08', 'I', 'Civil Engineering', 'Male', 'ryan.wilson@example.com'),
-( 'Amanda Brown', 'ABC College', 'MNO University', '1996-06-05', 'J', 'Chemical Engineering', 'Female', 'amanda.brown@example.com');
+( 'John Smith', 'ABC College', 'XYZ University', '1995-03-15', 'A', 'Computer Science', 'male', 'john.smith@example.com'),
+( 'Jane Doe', 'DEF College', 'PQR University', '1997-05-22', 'B', 'Mechanical Engineering', 'female', 'jane.doe@example.com'),
+( 'Alex Johnson', 'GHI College', 'LMN University', '1994-11-01', 'C', 'Electrical Engineering', 'male', 'alex.johnson@example.com'),
+('Sarah Williams', 'JKL College', 'STU University', '1996-02-12', 'D', 'Civil Engineering', 'female', 'sarah.williams@example.com'),
+('Mike Brown', 'MNO College', 'VWX University', '1993-07-29', 'E', 'Chemical Engineering', 'male', 'mike.brown@example.com'),
+( 'Emily Wilson', 'PQR College', 'ABC University', '1998-09-10', 'F', 'Computer Science', 'female', 'emily.wilson@example.com'),
+('David Lee', 'STU College', 'DEF University', '1995-04-18', 'G', 'Mechanical Engineering', 'male', 'david.lee@example.com'),
+( 'Jessica Taylor', 'UVW College', 'GHI University', '1997-01-25', 'H', 'Electrical Engineering', 'female', 'jessica.taylor@example.com'),
+( 'Ryan Wilson', 'XYZ College', 'JKL University', '1994-12-08', 'I', 'Civil Engineering', 'male', 'ryan.wilson@example.com'),
+( 'Amanda Brown', 'ABC College', 'MNO University', '1996-06-05', 'J', 'Chemical Engineering', 'female', 'amanda.brown@example.com');
 
 select *from student_details ;
 

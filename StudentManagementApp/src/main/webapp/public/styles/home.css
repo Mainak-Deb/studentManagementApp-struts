@@ -1,6 +1,6 @@
 @font-face {
     font-family:MazdaTypeRegular;
-    src: url(public/fonts/Mazda-Type-Regular.ttf);
+    src: url(../fonts/Mazda-Type-Regular.ttf);
 }
 
 
@@ -8,6 +8,9 @@ body,html{
     padding: 0;
     margin:0;
     font-family: MazdaTypeRegular,helvetica,arial,sans-serif;
+}
+#main{
+    
 }
 
 #header{
@@ -66,7 +69,7 @@ body,html{
 
 #logImg{
     width: 100vw;
-    height: 120vh;
+    height: 80vh;
     background:
         /* top, transparent black, faked with gradient */ 
         linear-gradient(
@@ -87,7 +90,7 @@ body,html{
 #logForm{
     position: absolute;
     width: 60vw;
-    height: auto;
+    height: 450px;
     background-color: #f9f9f9;
     z-index: 2;
     top: 200px;
@@ -108,52 +111,22 @@ body,html{
 }
 
 #logForm form{
-    margin-top: 20px;
     width: 100%;
     height: 60%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
 }
-#upperForm{
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: row;
-}
-#leftForm{
-    width: 50%;
-}
-
-#rightForm{
-    width: 50%;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #logForm form input{
-    width: 80%;
+    width:50%;
     height: 50px;
     border: 2px solid #2b2b2b6d;
     border-radius: 5px;
     font-size: 20px;
     font-weight: 400;
     color: #2b2b2b;
-    
+    margin-bottom: 20px;
     outline: none;
     padding-left:20px;
     height: 50px;
@@ -203,51 +176,6 @@ body,html{
     outline: none;
 }
 
-.radio {
-	border-radius: 3px;
-	border: 2px solid #2b2b2b6d;
-	display:flex;
-	flex-direction:row;
-	width:90%;
-}
-
-.radio input {
-	width: auto;
-	height: auto;
-	margin:0px;
-	margin-bottom:0px;
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
-	outline: none;
-	cursor: pointer;
-	border-radius:0px;
-	padding: 4px 8px;
-	background-color: rgba(255,255,255);
-	color: #bdbdbdbd;
-	font-size: 14px;
-	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-		"Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
-		"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-	transition: all 100ms linear;
-	
-}
-
-.radio input:checked {
-	background-color: rgba(0, 0, 0, 0.447);
-	color: #fff;
-	box-shadow: 0 1px 1px #0000002e;
-	text-shadow: 0 1px 0px #79485f7a;
-}
-
-.radio input:before {
-	content: attr(label);
-	display: inline-block;
-	text-align: center;
-	width: 100%;
-}
-
-
 #logForm a{
     margin: auto;
     color: #2b2b2b;
@@ -255,11 +183,6 @@ body,html{
     font-weight: 400;
     padding-bottom: 10px;
 }
-
-
-
-
-
 .footer-dark{
 
     width: 100vw;

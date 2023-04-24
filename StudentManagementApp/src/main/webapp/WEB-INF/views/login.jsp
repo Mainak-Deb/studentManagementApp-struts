@@ -1,13 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Login Form</title>
-<link rel="stylesheet" href="public/styles/error.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="public/styles/home.css">
+     <link rel="stylesheet" href="public/styles/error.css" />
 </head>
 <body>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <% 
    // Retrieve a session attribute
    String isNormal="true";
@@ -16,40 +19,69 @@
 
 %>
 
+<div id="main">
+    <div id="header">
+        <img src="public/images/logo_opt.png" style="width:10%" alt="">
+        <div class="head-text text"  >
+            INTERRAIT STUDENT PORTAL
+        </div>
+        <div>
+            <a href="login.do" class="head-button text" style="border-right:1px solid rgba(255, 255, 255, 0.544)" >LOGIN</a>
+            <a href="createUserPage.do" class="head-button text">CREATE NEW USER</a>
+        </div>
+    </div>
+    <div id="user-text">
+		    
+		<c:if test='${!isNormal.equals("true") }'>
+		  <span style="color:red;" >Error, Invalid username or password</span>
+		</c:if>
+    	<c:if test='${isNormal.equals("true") }'>
+		   Please Login to see student details
+		</c:if>
+           
+    </div>
+    <div id="login-body">
+        <div id="logImg">
+            <img src="public/images/office.png"  alt="">
+            <div id="logForm">                             
+                <h1>InterraIT Login Form  </h1>
+                <form action="login.do" method="post"  id="loginform" onsubmit="clearFormFields('loginform')">
+                    <label>Username:</label>
+                    
+                    <input type="text" name="username"  placeholder="type your email as username"   /><br/>
+                    <label>Password:</label>
+                    <input type="password" name="password"   placeholder="Password"    /><br/>
+                   
+                    <input type="submit" value="Login"/>
+                </form>
+                <a href="">forgot your password?</a>
+            </div>
 
-<h1>Login Form  </h1>
-<form action="login.do" method="post"  id="loginform" onsubmit="clearFormFields('loginform')"  >
-    <label>Username:</label>
-    <input type="text" name="username"/><br/>
-    <label>Password:</label>
-    <input type="password" name="password"/><br/>
-    <input type="submit" value="Login"/>
-</form>
-<a href="createUserPage.do">Create a new user</a>
+        </div>
+        
+    </div>
 
-<c:if test='${!isNormal.equals("true") }'>
-   <div class="frame">
-	  <div class="modal">
-	    <img src="https://100dayscss.com/codepen/alert.png" width="44" height="38" />
-			<span class="title">Oh snap!</span>
-			<p><%= messege %></p>
-			<div class="button">Dismiss</div>
-	  </div>
-	</div>
-</c:if>
+
+</div>
+
+
+<footer>
+    <div  > <h2>InterraIT student Portal</h2></div>
+    <div id="footer-text" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid nobis molestiae exercitationem dolor dolore voluptate tempore corrupti eligendi modi consequuntur quidem adipisci, deleniti sapiente? Vel inventore quo eos unde vitae.</div>
+    <div id="socials">
+        <div><span class="material-symbols-outlined"> mail</span></div>
+        <div><span class="material-symbols-outlined">phone_in_talk</span></div>
+        <div><span class="material-symbols-outlined"> sms</span></div>
+        <div><span class="material-symbols-outlined">contact_page</span></div>
+
+    </div>
+    <div>All rights reserves @2023</div>
+</footer>
+
 
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript">
 
-
- $('.button').bind('click', function() {
-	 console.log("hide")
- 
-	$('.modal').addClass('hide');
-});
- 
-</script>
 
 </body>
 </html>

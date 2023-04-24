@@ -1,7 +1,8 @@
-INDEX VERSION 1.4+D:\Documents\eclipse\studentManagementApp\studentManagementApp-struts\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-2504474167.index
-295787712.index
-3783903534.index
-2970785234.index
+INDEX VERSION 1.4+D:\Documents\struts\StudentManagementApp\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+1092374040.index
+2186477885.index
 3144624679.index
-3646812916.index
+2061286250.index
+3422515352.index
+1562938979.index
+2768799903.index
