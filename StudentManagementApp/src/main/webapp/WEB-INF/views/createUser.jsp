@@ -71,6 +71,7 @@
             <div>
               <form action="createUser.do" method="POST">
                 <div><h1>Create a new User</h1></div>
+                 <input type="hidden" name="studentId" value="1">
                 <div id="upperForm" >
                   <div id="leftForm">
                     <div>
@@ -162,7 +163,36 @@
  
 	$('.modal').addClass('hide');
 });
- 
+ $(document).ready(function() {
+	  // Get the date input field
+	
+
+	  // Add an event listener to the form submit event
+	  $('form').on('submit', function(event) {
+		  var dateInput = $('#date-of-birth');
+	    // Get the value of the date input field
+	    var inputValue = dateInput.val();
+
+	    // Convert the input value to a Date object
+	    var inputDate = new Date(inputValue);
+
+	    // Get the current date
+	    var currentDate = new Date();
+
+	    // Compare the input date with the current date
+	    if (inputDate > currentDate) {
+	      // Show an error message
+	      alert('Please enter a date that is not greater than the current date.');
+
+	      // Prevent the form from being submitted
+	      event.preventDefault();
+	    } else {
+	      // Clear the error message
+	      $('#date-of-birth').text('');
+	    }
+	  });
+	});
+
 </script>
 
   </body>

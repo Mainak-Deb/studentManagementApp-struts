@@ -57,7 +57,20 @@
     </action>
   </action-mappings>
   
+  <action-mappings>
+    <action path="/passwordchange" type="com.student.action.ChangePasswordPage"
+      name="ChangePasswordPage">
+      <forward name="success" path="/WEB-INF/views/changePassword.jsp" />
+    </action>
+  </action-mappings>
   
+  <action-mappings>
+    <action path="/updatePassword" type="com.student.action.ChangePasswordAction"
+      name="ChangePasswordAction" >
+      <forward name="success"  path="/WEB-INF/views/login.jsp"  />
+      <forward name="failure"  path="/passwordchange.do"  />
+    </action>
+  </action-mappings>
   
   
   

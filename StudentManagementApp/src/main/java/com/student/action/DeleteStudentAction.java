@@ -18,9 +18,9 @@ public class DeleteStudentAction extends Action {
 	    HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		StudentDAO stdao=new StudentDAO();
-		stdao.deleteStudent(request.getParameter("email"));
+		stdao.deleteStudent(request.getParameter("id"));
 		
-		System.out.println(request.getParameter("email"));
+		System.out.println(request.getParameter("id"));
 		    
 	     return mapping.findForward("success");
 	}

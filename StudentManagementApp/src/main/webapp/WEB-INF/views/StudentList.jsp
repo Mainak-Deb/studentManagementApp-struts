@@ -39,6 +39,7 @@
 
 <table  border="0" cellspacing="0" cellpadding="0">
   <tr>
+  	<th>Id</th>
     <th>Full Name</th>
     <th>College Name</th>
     <th>University Name</th>
@@ -52,48 +53,50 @@
     
   </tr>
   <c:forEach var="student" items="${studentList}">
-    <tr id="${student.studentEmail}-row"  >   
+    <tr id="${student.studentId}-row"  > 
+    	<td>${student.studentId}</td>  
       <td>${student.fullName}</td>
       <td>${student.collegeName}</td>
       <td>${student.universityName}</td>
       <td>${student.dateOfBirth}</td>
       <td>${student.section}</td>
       <td>${student.stream}</td>
-      <td id="${student.studentEmail}gender-row" >${student.gender}</td>
+      <td id="${student.studentId}gender-row" >${student.gender}</td>
       <td>${student.studentEmail}</td>
       <td>
-      	<button onclick="deleteStudent('${student.studentEmail}')"   ><span class="material-symbols-outlined">
+      	<button onclick="deleteStudent('${student.studentId}')"   ><span class="material-symbols-outlined">
 delete
 </span></button>
       </td>
       <td>
-      	<button onclick="editStudent('${student.studentEmail}')"   ><span class="material-symbols-outlined">
+      	<button onclick="editStudent('${student.studentId}')"   ><span class="material-symbols-outlined">
 edit
 </span></button>
       </td>
     </tr>
   	
-  	<tr  class="hidden" id="${student.studentEmail}-form"  >
-  	 
-      <td> <input type="text" id="${student.studentEmail}full-name" name="fullName" value= "${student.fullName}"  ></td>
-      <td><input type="text" id="${student.studentEmail}college-name" name="collegeName" value="${student.collegeName}" ></td>
-      <td><input type="text" id="${student.studentEmail}university-name" name="universityName" value="${student.universityName}" ></td>
-      <td><input type="date" id="${student.studentEmail}date-of-birth" name="dateOfBirth" value="${student.dateOfBirth}" ></td>
-      <td><input type="text" id="${student.studentEmail}section" name="section" value="${student.section}" ></td>
-      <td> <input type="text" id="${student.studentEmail}department" name="stream" value="${student.stream}" ></td>
+  	<tr  class="hidden" id="${student.studentId}-form"  >
+  	
+  	 <td> <input type="text" id="${student.studentId}student-id" name="fullName" value= " ${student.studentId}"  ></td>
+      <td> <input type="text" id="${student.studentId}full-name" name="fullName" value= "${student.fullName}"  ></td>
+      <td><input type="text" id="${student.studentId}college-name" name="collegeName" value="${student.collegeName}" ></td>
+      <td><input type="text" id="${student.studentId}university-name" name="universityName" value="${student.universityName}" ></td>
+      <td><input type="date" id="${student.studentId}date-of-birth" name="dateOfBirth" value="${student.dateOfBirth}" ></td>
+      <td><input type="text" id="${student.studentId}section" name="section" value="${student.section}" ></td>
+      <td> <input type="text" id="${student.studentId}department" name="stream" value="${student.stream}" ></td>
       <td class="radio-button" >
-      	  <input  type="radio"   id="male" name="${student.studentEmail}gender" value="male">
+      	  <input  type="radio"   id="male" name="${student.studentId}gender" value="male">
 		  <label for="male">male</label>
-		  <input  type="radio"   id="female" name="${student.studentEmail}gender" value="female">
+		  <input  type="radio"   id="female" name="${student.studentId}gender" value="female">
 		  <label for="female">female</label>
 	  </td>
-      <td>${student.studentEmail}</td>
+      <td id="${student.studentId}email">${student.studentEmail}</td>
       <td>
-      	 <button onclick="deleteStudent('${student.studentEmail}')"   ><span class="material-symbols-outlined">
+      	 <button onclick="deleteStudent('${student.studentId}')"   ><span class="material-symbols-outlined">
 delete
 </span></button>
       </td>
-      <td><button onclick="updateStudent('${student.studentEmail}')"   ><span class="material-symbols-outlined">
+      <td><button onclick="updateStudent('${student.studentId}')"   ><span class="material-symbols-outlined">
 frame_reload
 </span></button>
      
@@ -125,17 +128,17 @@ frame_reload
 <script type="text/javascript">
 
 	var isUpdateOn=false;
-	function deleteStudent(email){
-		console.log(email)
+	function deleteStudent(id){
+		console.log(id)
 		 $.ajax({
 		    type: "GET",
 		    url: "deleteStudent.do",
-		    data: { email: email },
+		    data: { id:id },
 		    success: function(response) {
 		      // handle success response
 		      //location.reload();
-		      document.getElementById(email+"-row").style.display="none";
-		      document.getElementById(email+"-form").style.display="none";
+		      document.getElementById(id+"-row").style.display="none";
+		      document.getElementById(id+"-form").style.display="none";
 		      console.log("Student deleted successfully.");
 		      location.reload();
 		    },
@@ -146,15 +149,15 @@ frame_reload
 		  });	
 	}
 	
-	function editStudent(email){
+	function editStudent(id){
 		if(!isUpdateOn){
 			isUpdateOn=true;
-			console.log("#"+email+"-row","john.smith@example.com-row")
-			document.getElementById(email+"-row").style.display="none";
-			document.getElementById(email+"-form").style.display="table-row";
-			gender=document.getElementById(email+"gender-row").innerHTML;
+			console.log("#"+id+"-row")
+			document.getElementById(id+"-row").style.display="none";
+			document.getElementById(id+"-form").style.display="table-row";
+			gender=document.getElementById(id+"gender-row").innerHTML;
 			console.log(gender)
-			var genderRadio = document.querySelector('input[name="'+email+'gender"][value="' + gender + '"]');
+			var genderRadio = document.querySelector('input[name="'+id+'gender"][value="' + gender + '"]');
 			console.log(genderRadio)
 			if (genderRadio) {
 			  genderRadio.checked = true;
@@ -164,12 +167,20 @@ frame_reload
 		}
 		
 	}
-	function updateStudent(email){
+	function updateStudent(id){
 		
 			isUpdateOn=false;
 			
-			var studentData=getData(email)
+			var studentData=getData(id)
+			console.log(studentData)
+			console.log("date out",validate_date(studentData.studentId))
+			if(!validate_date(studentData.studentId)){
+				
+				alert("Input date can't be greater than current date")
+				return "failure";
+			}
 			var isOk=validate(studentData)
+			
 			
 			if(!isOk) {
 				alert("Field should not be empty")
@@ -183,13 +194,13 @@ frame_reload
 		    data: studentData,
 		    success: function(response) {
 		      // handle success response
-			document.getElementById(email+"-row").style.display="table-row";
-			document.getElementById(email+"-form").style.display="none";
+			document.getElementById(id+"-row").style.display="table-row";
+			document.getElementById(id+"-form").style.display="none";
 		      location.reload();
 		    },
 		    error: function(jqXHR, textStatus, errorThrown) {
 		      // handle error response
-		      alert("Error deleting student:");
+		      alert("Error updating student:");
 		    }
 		  });	
 			return "success";
@@ -202,25 +213,28 @@ frame_reload
 
 	}
 	
-	function getData(email){
+	function getData(id){
 		var student = {};
-		console.log(email)
+		console.log(id)
+		
 		// get input fields using their name attribute and assign their values to object properties
-		student.fullName = document.getElementById(email+"full-name").value;
-		student.collegeName = document.getElementById(email+"college-name").value;
-		student.universityName = document.getElementById(email+"university-name").value;
-		student.dateOfBirth = document.getElementById(email+"date-of-birth").value;
-		student.section = document.getElementById(email+"section").value;
-		student.stream = document.getElementById(email+"department").value;
-		student.gender = document.querySelector('input[name="'+email+'gender"]:checked').value;
-		student.studentEmail = email;
-
+		student.studentId=id;
+		student.fullName = document.getElementById(id+"full-name").value;
+		student.collegeName = document.getElementById(id+"college-name").value;
+		student.universityName = document.getElementById(id+"university-name").value;
+		student.dateOfBirth = document.getElementById(id+"date-of-birth").value;
+		student.section = document.getElementById(id+"section").value;
+		student.stream = document.getElementById(id+"department").value;
+		student.gender = document.querySelector('input[name="'+id+'gender"]:checked').value;
+		student.studentEmail = document.getElementById(id+"email").innerHTML;
+		
 		
 		return student;
 		
 	}
 	
 	function validate(studentList){
+		
 		for (let key in studentList) {
 			 if(studentList[key].length==0){
 				 return false;
@@ -229,7 +243,32 @@ frame_reload
 		return true;
 	}
 	
-	
+	function  validate_date(id) {
+		  // Get the date input field
+		  var dateInput = $("#"+id+"date-of-birth");
+
+		  // Add an event listener to the date input field
+		 
+		    // Get the value of the date input field
+		    var inputValue = dateInput.val();
+
+		    // Convert the input value to a Date object
+		    var inputDate = new Date(inputValue);
+
+		    // Get the current date
+		    var currentDate = new Date();
+
+		    // Compare the input date with the current date
+		    console.log(inputDate , currentDate,inputDate > currentDate)
+		    if (inputDate >= currentDate) {
+		      // Show an error message
+		      return false;
+		    } else {
+		      // Clear the error message
+		     return true;
+		    }
+		 
+		}
 </script>
 
 </body>

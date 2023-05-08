@@ -8,6 +8,7 @@ public class CreateUserForm  extends ActionForm {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private int studentId;
     private String fullName;
     private String collegeName;
     private String universityName;
@@ -67,6 +68,12 @@ public class CreateUserForm  extends ActionForm {
 	}
 	public void setStudentEmail(String studentEmail) {
 		this.studentEmail = studentEmail;
+	}
+	public int getStudentId() {
+		return studentId;
+	}
+	public void setStudentId(int studentId) {
+		this.studentId = studentId;
 	}
 	
 

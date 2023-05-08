@@ -1,7 +1,0 @@
-package com.student.action;
-
-import org.apache.struts.action.Action;
-
-public class deleteStudentAction extends Action {
-	
-}

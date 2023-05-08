@@ -83,6 +83,21 @@ public class AuthDAO {
         }
     }
     
+    public boolean updatePassword(String username, String password) throws SQLException {
+    	String sql = "update  user_credential set password=? where username=? ";
+        connect();
+
+        PreparedStatement statement = jdbcConnection.prepareStatement(sql);
+        
+        statement.setString(2, username);
+        statement.setString(1, password);
+       
+        boolean updated = statement.executeUpdate() > 0;
+        statement.close();
+        disconnect();
+        return updated;
+    }
+    
     public String parseDOB(String date) {
     	System.out.println(date);
     	String[] dateParts = date.split("-");

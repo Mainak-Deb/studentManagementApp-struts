@@ -86,7 +86,7 @@ public class StudentDAO {
             String gender = resultSet.getString("gender");
             String studentEmail = resultSet.getString("email");
             
-            student =this.makeStudent (fullName, collegeName, universityName, dateOfBirth, section, department, gender, studentEmail);
+            student =this.makeStudent (Integer.parseInt(studentId),fullName, collegeName, universityName, dateOfBirth, section, department, gender, studentEmail);
         }
         resultSet.close();
         statement.close();
@@ -105,6 +105,7 @@ public class StudentDAO {
 
         ResultSet resultSet = statement.executeQuery();
         while (resultSet.next()) {
+        	int studentId= resultSet.getInt("student_id");
             String fullName = resultSet.getString("full_name");
             String collegeName = resultSet.getString("college_name");
             String universityName = resultSet.getString("university_name");
@@ -113,18 +114,20 @@ public class StudentDAO {
             String department = resultSet.getString("department");
             String gender = resultSet.getString("gender");
             String studentEmail = resultSet.getString("email");
-            CreateUserForm  newStudent = this.makeStudent( fullName, collegeName, universityName, dateOfBirth, section, department, gender, studentEmail);
+            CreateUserForm  newStudent = this.makeStudent(studentId, fullName, collegeName, universityName, dateOfBirth, section, department, gender, studentEmail);
             students.add(newStudent);
         }
         resultSet.close();
         statement.close();
         disconnect();
-        
+        for(CreateUserForm c:students) {
+        	System.out.println(c.getStudentId() +" | "+c.getFullName()+" | "+c.getStudentEmail());
+        }
     	return students;
     }
 
-    public boolean deleteStudent(String emailId) throws SQLException {
-        String sql = "DELETE from student_details WHERE email = '"+emailId+"'";
+    public boolean deleteStudent(String id) throws SQLException {
+        String sql = "DELETE from student_details WHERE student_id = '"+id+"'";
         connect();
 
         PreparedStatement statement = jdbcConnection.prepareStatement(sql);
@@ -142,7 +145,7 @@ public class StudentDAO {
     public boolean updateStudent(CreateUserForm student) throws SQLException {
         String sql = "UPDATE student_details SET full_name = ?, college_name = ?,"
         		+ " university_name = ?, dob = ?, section = ?, department = ?,"
-        		+ " gender = ? WHERE email = ?";
+        		+ " gender = ? WHERE student_id = ?";
         connect();
 
         PreparedStatement statement = jdbcConnection.prepareStatement(sql);
@@ -154,7 +157,7 @@ public class StudentDAO {
         statement.setString(5, student.getSection());
         statement.setString(6, student.getStream());
         statement.setString(7, student.getGender());
-        statement.setString(8, student.getStudentEmail());
+        statement.setInt(8, student.getStudentId());
         
         
 
@@ -165,10 +168,11 @@ public class StudentDAO {
     }
     
     
-    public CreateUserForm makeStudent( String fullName, String collegeName, String universityName,
+    public CreateUserForm makeStudent( int id,String fullName, String collegeName, String universityName,
             String dateOfBirth, String section, String stream , String gender, String studentEmail) {
     	CreateUserForm student = new CreateUserForm();
     	
+    	student.setStudentId(id);
     	student.setFullName(fullName);
     	student.setCollegeName(collegeName);
     	student.setUniversityName(universityName);

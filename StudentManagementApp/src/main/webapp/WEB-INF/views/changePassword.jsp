@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Forget</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="public/styles/home.css">
      <link rel="stylesheet" href="public/styles/error.css" />
@@ -31,12 +31,9 @@
         </div>
     </div>
     <div id="user-text">
-		    <%= isNormal %>
+    	
 		<c:if test='${isNormal.equals("false") }'>
 		  <span style="color:red;" >Error, Invalid username or password</span>
-		</c:if>
-    	<c:if test='${isNormal.equals("true") }'>
-		   Please Login to see student details
 		</c:if>
            
     </div>
@@ -44,18 +41,22 @@
         <div id="logImg">
             <img src="public/images/office.png"  alt="">
             <div id="logForm">                             
-                <h1>InterraIT Login Form  </h1> <br>
-                <form action="login.do" method="post"  id="loginform" onsubmit="clearFormFields('loginform')">
+                <h1>InterraIT Change Password Form  </h1>
+                <form action="updatePassword.do" method="post"  id="loginform" onsubmit="clearFormFields('loginform')">
                     <label>Username:</label>
                     
                     <input type="text" name="username"  placeholder="type your email as username"   /><br/>
                     <label>Password:</label>
                     <input type="password" name="password"   placeholder="Password"    /><br/>
+                    
+                    <label>New password:</label>
+                    <input type="password" name="newpassword"   placeholder="Password"    /><br/>
                    
-                    <input type="submit" value="Login"/>
+                    <input type="submit" value="Update"/>
                 </form>
-                <a href="passwordchange.do">change your password?</a>
-                <a href="passwordchange.do">Forget password?</a>
+                <br>
+                <a href="login.do">Login</a>
+                <a href="">forgot your password?</a>
             </div>
 
         </div>
